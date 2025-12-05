@@ -1,0 +1,65 @@
+// Define the pins for our "Rooms"
+// The Mega has digital pins 22-53 which are easy to plug into
+int kitchenLight = 22;
+int bedroomLight = 23;
+int livingRoomLight = 24;
+
+void setup() {
+  Serial.begin(9600);
+
+  // Set up the pins as outputs
+  pinMode(kitchenLight, OUTPUT);
+  pinMode(bedroomLight, OUTPUT);
+  pinMode(livingRoomLight, OUTPUT);
+  
+  // Start with everything off
+  digitalWrite(kitchenLight, LOW);
+  digitalWrite(bedroomLight, LOW);
+  digitalWrite(livingRoomLight, LOW);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    // Read the command from Python
+    String command = Serial.readStringUntil('\n');
+    command.trim(); // Remove spaces
+
+    // Check which command it is
+    
+    // Kitchen Controls
+    if (command == "K_ON") {
+      digitalWrite(kitchenLight, HIGH);
+    }
+    else if (command == "K_OFF") {
+      digitalWrite(kitchenLight, LOW);
+    }
+    
+    // Bedroom Controls
+    else if (command == "B_ON") {
+      digitalWrite(bedroomLight, HIGH);
+    }
+    else if (command == "B_OFF") {
+      digitalWrite(bedroomLight, LOW);
+    }
+    
+    // Living Room Controls
+    else if (command == "L_ON") {
+      digitalWrite(livingRoomLight, HIGH);
+    }
+    else if (command == "L_OFF") {
+      digitalWrite(livingRoomLight, LOW);
+    }
+    
+    // Master Controls
+    else if (command == "ALL_ON") {
+      digitalWrite(kitchenLight, HIGH);
+      digitalWrite(bedroomLight, HIGH);
+      digitalWrite(livingRoomLight, HIGH);
+    }
+    else if (command == "ALL_OFF") {
+      digitalWrite(kitchenLight, LOW);
+      digitalWrite(bedroomLight, LOW);
+      digitalWrite(livingRoomLight, LOW);
+    }
+  }
+}
