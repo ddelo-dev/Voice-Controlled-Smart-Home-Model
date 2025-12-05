@@ -6,19 +6,7 @@ A voice-activated home automation prototype that uses Python for speech recognit
 https://youtu.be/slHfhOEyEwg
 
 
-# Features
 
- Real-time Voice Recognition: Uses Google's Speech API to understand natural commands.
-
- Individual Room Control: Toggle lights in the Kitchen, Bedroom, and Living Room independently.
-
- Party Mode: A special voice command triggers all lights simultaneously.
-
- Serial Communication: Robust data transfer between PC and Microcontroller.
-
- 
-
-# Hardware Checklist
 
 Arduino Mega 2560 (1): The microcontroller brain.
 
