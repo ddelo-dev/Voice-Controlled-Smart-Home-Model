@@ -1,0 +1,69 @@
+import serial
+import speech_recognition as sr
+import time
+
+# CONFIGURATION
+# Make sure this matches your Arduino Port
+SERIAL_PORT = 'COM3' 
+BAUD_RATE = 9600
+
+try:
+    arduino = serial.Serial(SERIAL_PORT, BAUD_RATE)
+    time.sleep(2)
+    print("Connected! Smart Home System Online.")
+
+    recognizer = sr.Recognizer()
+    mic = sr.Microphone()
+
+    print("Speak commands like: 'Turn on Kitchen', 'Bedroom off', 'Party mode'...")
+
+    while True:
+        with mic as source:
+            recognizer.adjust_for_ambient_noise(source)
+            try:
+                print("Listening...")
+                audio = recognizer.listen(source, timeout=5)
+                text = recognizer.recognize_google(audio).lower()
+                
+                print(f"Heard: {text}")
+
+                # Simple Logic to control the house
+                if "kitchen" in text and "on" in text:
+                    arduino.write(b"K_ON\n")
+                    print("Action: Kitchen ON")
+                    
+                elif "kitchen" in text and "off" in text:
+                    arduino.write(b"K_OFF\n")
+                    print("Action: Kitchen OFF")
+
+                elif "bedroom" in text and "on" in text:
+                    arduino.write(b"B_ON\n")
+                    print("Action: Bedroom ON")
+
+                elif "bedroom" in text and "off" in text:
+                    arduino.write(b"B_OFF\n")
+                    print("Action: Bedroom OFF")
+                    
+                elif "living" in text and "on" in text: # Matches "living room"
+                    arduino.write(b"L_ON\n")
+                    print("Action: Living Room ON")
+                    
+                elif "living" in text and "off" in text:
+                    arduino.write(b"L_OFF\n")
+                    print("Action: Living Room OFF")
+
+                elif "all on" in text or "party" in text:
+                    arduino.write(b"ALL_ON\n")
+                    print("Action: PARTY MODE")
+
+                elif "deactivate" in text or "all off" in text:
+                    arduino.write(b"ALL_OFF\n")
+                    print("Action: Shutting down")
+
+            except sr.UnknownValueError:
+                pass # Ignore silence or noise
+            except Exception as e:
+                print("Listening...")
+
+except Exception as e:
+    print(f"Error: {e}")
