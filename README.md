@@ -1,12 +1,15 @@
 # Voice-Controlled-Smart-Home-Model
 A voice-activated home automation prototype that uses Python for speech recognition and an Arduino Mega 2560 to control physical lighting circuits. This project demonstrates how to bridge high-level software (AI/Speech) with low-level hardware (LEDs/Relays).
- Jarvis-Lite: Voice Controlled Smart Home Model
-
+ 
 # Demo
 https://youtu.be/slHfhOEyEwg
 
 
 
+
+ 
+
+# Hardware Checklist
 
 Arduino Mega 2560 (1): The microcontroller brain.
 
@@ -47,7 +50,7 @@ Select your Port (e.g., COM3) and click Upload.
 
 2. Python Setup
 
-Install Python 3.x on your computer.
+Install Python 3.x on your computer or use .
 
 Install the required libraries:
 
