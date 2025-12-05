@@ -2,6 +2,7 @@ import serial
 import speech_recognition as sr
 import time
 
+
 # CONFIGURATION
 # Make sure this matches your Arduino Port
 SERIAL_PORT = 'COM3' 
