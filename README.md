@@ -50,7 +50,7 @@ Select your Port (e.g., COM3) and click Upload.
 
 2. Python Setup
 
-Install Python 3.x on your computer or use .
+Install Python 3.x on your computer.
 
 Install the required libraries:
 
