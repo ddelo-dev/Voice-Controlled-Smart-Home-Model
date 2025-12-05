@@ -8,7 +8,7 @@ Project Demo
 
 
 
- Features
+# Features
 
  Real-time Voice Recognition: Uses Google's Speech API to understand natural commands.
 
@@ -20,7 +20,7 @@ Project Demo
 
  
 
- Hardware Checklist
+# Hardware Checklist
 
 Arduino Mega 2560 (1): The microcontroller brain.
 
@@ -32,7 +32,7 @@ Breadboard (1): For prototyping connections.
 
 Jumper Wires (7+): Male-to-Male type.
 
- Wiring Guide
+# Wiring Guide
 
 Red LED (Kitchen): Connect Breadboard Row 10 to Arduino Pin 22.
 
@@ -43,8 +43,7 @@ Blue LED (Living Room): Connect Breadboard Row 20 to Arduino Pin 24.
 > Note: Ensure all LEDs share a common Ground (GND) connection via the breadboard's negative rail.
 
 
-
- Software Installation
+# Software Installation
 
 1. Arduino Setup
 
@@ -66,6 +65,7 @@ Install Python 3.x on your computer.
 
 Install the required libraries:
 
+
 pip install pyserial SpeechRecognition pyaudio
 
 
@@ -73,7 +73,7 @@ Open smart_home_voice.py and update the SERIAL_PORT variable to match your Ardui
 
 
 
-Voice Commands
+# Voice Commands
 
 Once the Python script is running, try saying these commands:
 
@@ -89,7 +89,7 @@ Once the Python script is running, try saying these commands:
 
 
 
- Future Improvements
+# Future Improvements
 
  Add an LCD screen to display the current status text.
 
